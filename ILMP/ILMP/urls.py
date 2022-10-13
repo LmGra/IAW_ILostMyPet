@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from ILMP_app import views
+from ILMP_app.views import MascotasListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('mascotas/', MascotasListView.as_view()),
 ]

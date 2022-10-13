@@ -3,6 +3,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+GENDER_CHOICES = (
+    ('M', 'Male'),
+    ('F', 'Female'),
+)
+
 class Usuarios(models.Model):
     nameUsr = models.CharField(max_length=200)
     passUsr = models.CharField(max_length=200)
@@ -36,7 +41,8 @@ class Mascotas(models.Model):
     agePet = models.DateField(blank=True, null=True)
     typePet = models.CharField(max_length=200)
     imgPet = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
-    
+    genderPet = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
+    usrPet = models.ForeignKey("Usuarios", on_delete=models.CASCADE, null=True)
     #imgPet = models.BooleanField()
     #models.PositiveBigIntegerField()
     
@@ -50,24 +56,31 @@ class Perdidas(models.Model):
     infoLost = models.CharField(max_length=200)
     dateLost = models.DateTimeField(blank=True, null=True)
     petLost = models.ForeignKey("Mascotas", on_delete=models.CASCADE, null=True)
-    usrLost = models.ForeignKey("Usuarios", on_delete=models.CASCADE, null=True)
+    ubiLost = models.CharField(max_length=200, blank=True)
 
-    #def __str__(self):
-        #return self.perdidas_text
+    #ubiLost = models.CharField(max_length=200)
+    #typeLost = models.ForeignKey("Mascotas", on_delete=models.CASCADE, null=True)
+    #genderLost = models.ForeignKey("Usuarios", on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.infoLost
 
 class Encuentros(models.Model):
     typeFind = models.CharField(max_length=200)
     #genderFind = models.CharField(max_length=1, choices=GENDER)
     infoFind = models.CharField(max_length=200)
+    genderFind = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
+    ubiFind = models.CharField(max_length=200, blank=True)
+    #ubiFind  = models.CharField(max_length=200)
 
-    #def __str__(self):
-        #return self.encuentros_text
+    def __str__(self):
+        return self.typeFind
 
-class Area(models.Model):
-    country = models.CharField(max_length=200)
-    comunidadautonoma = models.CharField(max_length=200)
-    provincia = models.CharField(max_length=200)
-    calle = models.CharField(max_length=200)
+#class Area(models.Model):
+#    country = models.CharField(max_length=200)
+#    comunidadautonoma = models.CharField(max_length=200)
+#    provincia = models.CharField(max_length=200)
+#    calle = models.CharField(max_length=200)
 
     #def __str__(self):
         #return self.encuentros_text
