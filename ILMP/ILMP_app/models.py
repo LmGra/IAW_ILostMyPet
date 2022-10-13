@@ -52,7 +52,7 @@ class Mascotas(models.Model):
     def __str__(self):
         return self.namePet
 
-class Perdidas(models.Model):
+class Perdidos(models.Model):
     infoLost = models.CharField(max_length=200)
     dateLost = models.DateTimeField(blank=True, null=True)
     petLost = models.ForeignKey("Mascotas", on_delete=models.CASCADE, null=True)

@@ -1,0 +1,10 @@
+
+
+{% block content %}
+    <h2>Encuentros</h2>
+    <ul>
+        {% for encuentro in object_list %}
+            <li>{{ encuentro.typeFind }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
