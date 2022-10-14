@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from ILMP_app import views
-from ILMP_app.views import MascotasListView, EncuentrosListView, PerdidosListView
+from ILMP_app.views import PerdidosDetailView, EncuentrosDetailView, MascotasDetailView, MascotasListView, EncuentrosListView, PerdidosListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mascotas/', MascotasListView.as_view()),
+    path('mascotas/<int:pk>/', MascotasDetailView.as_view(), name='mascotas-detail'),
     path('encuentros/', EncuentrosListView.as_view()),
+    path('encuentros/<int:pk>/', EncuentrosDetailView.as_view(), name='encuentros-detail'),
     path('perdidos/', PerdidosListView.as_view()),
+    path('perdidos/<int:pk>/', PerdidosDetailView.as_view(), name='perdidos-detail'),
 ]

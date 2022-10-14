@@ -4,7 +4,8 @@
     <h2>Mascotas</h2>
     <ul>
         {% for mascota in object_list %}
-            <li>{{ mascota.namePet }}</li>
+        <li><a href={% url 'mascotas-detail' mascota.id %}>{{ mascota.namePet }}</a></li>
+            <!--<li>{{ mascota.namePet }}</li> -->
         {% endfor %}
     </ul>
 {% endblock %}

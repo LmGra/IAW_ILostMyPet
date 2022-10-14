@@ -4,7 +4,8 @@
     <h2>Perdidos</h2>
     <ul>
         {% for perdido in object_list %}
-            <li>{{ perdido.petLost }}</li>
+        <li><a href={% url 'perdidos-detail' perdido.id %}>{{ perdido.petLost }}</a></li>
+            <!--<li>{{ perdido.petLost }}</li>-->
         {% endfor %}
     </ul>
 {% endblock %}

@@ -4,7 +4,8 @@
     <h2>Encuentros</h2>
     <ul>
         {% for encuentro in object_list %}
-            <li>{{ encuentro.typeFind }}</li>
+        <li><a href={% url 'encuentros-detail' encuentro.id %}>{{ encuentro.typeFind }}</a></li>
+            <!--<li>{{ encuentro.typeFind }}</li>-->
         {% endfor %}
     </ul>
 {% endblock %}
