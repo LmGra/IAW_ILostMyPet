@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from ILMP_app import views
-from ILMP_app.views import PerdidosDetailView, EncuentrosDetailView, MascotasDetailView, MascotasListView, EncuentrosListView, PerdidosListView
+from ILMP_app.views import index,PerdidosDetailView, EncuentrosDetailView, MascotasDetailView, MascotasListView, EncuentrosListView, PerdidosListView
 
 urlpatterns = [
+    path('', index),
     path('admin/', admin.site.urls),
     path('mascotas/', MascotasListView.as_view()),
     path('mascotas/<int:pk>/', MascotasDetailView.as_view(), name='mascotas-detail'),
