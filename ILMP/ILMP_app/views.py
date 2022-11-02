@@ -1,9 +1,12 @@
 from django.shortcuts import render
 
-from django.views.generic import ListView, DetailView, CreateView
-from django.views.generic.edit import FormView
-from ILMP_app.forms import ContactForm
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+#from ILMP_app.forms import ContactForm
 from ILMP_app.models import Mascotas, Encuentros, Perdidos
+from django.urls import reverse_lazy
+#from django.contrib.auth.models import User
+#from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 #Página de inicio
 
@@ -18,6 +21,20 @@ class MascotasListView(ListView):
 class MascotasDetailView(DetailView):
     model = Mascotas
 
+class MascotasCreateView(CreateView):
+    model = Mascotas
+    fields = ['namePet', 'infoPet', 'agePet', 'typePet', 'imgPet', 'genderPet', 'usrPet']
+    success_url = reverse_lazy('mascotas-list')
+
+class MascotasUpdateView(UpdateView):
+    model = Mascotas
+    fields = ['namePet', 'infoPet', 'agePet', 'typePet', 'imgPet', 'genderPet', 'usrPet']
+    template_name_sufix = '_update_form'
+
+class MascotasDeleteView(DeleteView):
+    model = Mascotas
+    success_url = reverse_lazy('mascotas-list')
+
 #Encontradas
 
 class EncuentrosListView(ListView):
@@ -25,6 +42,20 @@ class EncuentrosListView(ListView):
 
 class EncuentrosDetailView(DetailView):
     model = Encuentros
+
+class EncuentrosCreateView(CreateView):
+    model = Encuentros
+    fields = ['typeFind', 'infoFind', 'genderFind', 'ubiFind']
+    #success_url = reverse_lazy('encuentros-list')
+
+class EncuentrosUpdateView(UpdateView):
+    model = Encuentros
+    fields = ['typeFind', 'infoFind', 'genderFind', 'ubiFind']
+    template_name_sufix = '_update_form'
+
+class EncuentrosDeleteView(DeleteView):
+    model = Encuentros
+    success_url = reverse_lazy('encuentros-list')
 
 #Buscadas
 
@@ -34,16 +65,20 @@ class PerdidosListView(ListView):
 class PerdidosDetailView(DetailView):
     model = Perdidos
 
-class ContactFormView(FormView):
-    template_name = 'contact.html'
-    form_class = ContactForm
-    success_url = '/thanks/'
+class PerdidosCreateView(CreateView):
+    model = Perdidos
+    fields = ['infoLost', 'dateLost', 'petLost', 'ubiLost']
+    #success_url = reverse_lazy('perdidos-list')
 
-    def form_valid(self, form):
-        # This method is called when valid form data has been POSTed.
-        # It should return an HttpResponse.
-        form.send_email()
-        return super().form_valid(form)
+class PerdidosUpdateView(UpdateView):
+    model = Perdidos
+    fields = ['infoLost', 'dateLost', 'petLost', 'ubiLost']
+    template_name_sufix = '_update_form'
+
+class PerdidosDeleteView(DeleteView):
+    model = Perdidos
+    success_url = reverse_lazy('perdidos-list')
+
 
 #def index(request):
 #    return render(request,'ILMP_app/index.html')

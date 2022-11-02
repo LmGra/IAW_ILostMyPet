@@ -1,6 +1,7 @@
 from multiprocessing.dummy import Manager
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 GENDER_CHOICES = (
@@ -8,8 +9,11 @@ GENDER_CHOICES = (
     ('F', 'Female'),
 )
 
+
+
 class Usuarios(models.Model):
-    nameUsr = models.CharField(max_length=200)
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    #nameUsr = models.CharField(max_length=200)
     passUsr = models.CharField(max_length=200)
     ubiUsr = models.CharField(max_length=200)
     mailUsr = models.EmailField(max_length=254)
@@ -17,7 +21,7 @@ class Usuarios(models.Model):
     #pub_date = models.DateTimeField('date published')
 
     def __str__(self):
-        return self.nameUsr
+        return self.user.first_name
 
 #GENDER=[("M"),("F")]
 #GENDER_CHOICES = [
@@ -40,7 +44,9 @@ class Mascotas(models.Model):
     infoPet = models.CharField(max_length=200)
     agePet = models.DateField(blank=True, null=True)
     typePet = models.CharField(max_length=200)
-    imgPet = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    imgPet = models.ImageField(null=True, blank=True, upload_to="images/")
+    #imgPet = models.FileField(upload_to=None)
+    #imgPet = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     genderPet = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
     usrPet = models.ForeignKey("Usuarios", on_delete=models.CASCADE, null=True)
     #imgPet = models.BooleanField()
@@ -51,13 +57,15 @@ class Mascotas(models.Model):
 
     def __str__(self):
         return self.namePet
+    def get_absolute_url(self):
+        return reverse('mascotas-list',args=[self.pk])
 
 class Perdidos(models.Model):
     infoLost = models.CharField(max_length=200)
     dateLost = models.DateTimeField(blank=True, null=True)
     petLost = models.ForeignKey("Mascotas", on_delete=models.CASCADE, null=True)
     ubiLost = models.CharField(max_length=200, blank=True)
-
+    #imgLost = models.ForeignKey("Mascotas", on_delete=models.CASCADE, null=True)
     #ubiLost = models.CharField(max_length=200)
     #typeLost = models.ForeignKey("Mascotas", on_delete=models.CASCADE, null=True)
     #genderLost = models.ForeignKey("Usuarios", on_delete=models.CASCADE, null=True)

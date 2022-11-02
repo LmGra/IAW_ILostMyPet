@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <h2>{{ object.namePet }}</h5>
+    <h2>{{ object.namePet }}</h2>
 
     <h3>{{ object.infoPet }}</h3>
 
@@ -12,7 +12,8 @@
         <p>Tipo de Animal : {{ object.typePet }}</p>
         <p>Nacido el {{ object.agePet }}</p>
         </br>
-        <p>Imagen : {{ object.imgPet }}</p>
+        <p>Imagen : <img src="../../../media/{{ object.imgPet }}"></p>
+        <!--<p>Imagen : <img src="{{ object.imgPet }}""></p>-->
         </br>
         <p>Dueño : {{ object.usrPet }}</p>
     

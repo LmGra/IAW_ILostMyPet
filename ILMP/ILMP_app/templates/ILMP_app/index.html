@@ -1,5 +1,15 @@
 Página principal en construcción
 
+<!-- LOGEAR Y DESLOGEAR(login.html, setting, urls) -->
+{% if user.is_authenticated %}
+    Hola {{user.username}}
+    <p><a href="{% url 'logout' %}">Deslogear</a></p>
+    {% else %}
+    <p>No estás logeado</p>
+    <a href="{% url 'login' %}">Logear</a>
+    {% endif %}
+
+<!-- HIPERVÍNCULOS(listas) -->
 </br>
 Apartados:
 </br>

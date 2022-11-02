@@ -4,11 +4,10 @@
 
 <h2>{{ object.infoLost }}</h2>
 
-<h3>{{ object.petLost }}</h3>
-
 </br>
-    <p>Perdido el : {{ object.petLost }}</p>
+    <p>Nombre : {{ object.petLost }}</p>
+    <p>Imagen : <img src="../../../media/{{ object.imgPet }}"></p>
     </br>
-    <p>Ubicación : {{ object.ubiLost }}</p>
+    <p>Lugar de la pérdida : {{ object.ubiLost }}</p>
 
 {% endblock %}
