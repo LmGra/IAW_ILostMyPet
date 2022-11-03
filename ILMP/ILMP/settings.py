@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['10.1.2.213', '127.0.0.1']
 
-
+AUTH_USER_MODEL = 'ILMP_app.User'
 # Application definition
 
 INSTALLED_APPS = [

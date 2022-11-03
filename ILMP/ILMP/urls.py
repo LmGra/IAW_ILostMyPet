@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from ILMP_app import views
-from ILMP_app.views import index, EncuentrosDeleteView, EncuentrosUpdateView, EncuentrosCreateView, PerdidosUpdateView, PerdidosDeleteView, PerdidosCreateView ,MascotasDeleteView, MascotasUpdateView, MascotasCreateView, PerdidosDetailView, EncuentrosDetailView, MascotasDetailView, MascotasListView, EncuentrosListView, PerdidosListView
+from ILMP_app.views import index, UserDeleteView, UserUpdateView, UserCreateView, UserDetailView, UserListView, EncuentrosDeleteView, EncuentrosUpdateView, EncuentrosCreateView, PerdidosUpdateView, PerdidosDeleteView, PerdidosCreateView ,MascotasDeleteView, MascotasUpdateView, MascotasCreateView, PerdidosDetailView, EncuentrosDetailView, MascotasDetailView, MascotasListView, EncuentrosListView, PerdidosListView
 from django.views.generic.base import TemplateView
 
 urlpatterns = [
@@ -33,6 +33,13 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("", TemplateView.as_view(template_name="ILMP_app/index.html"),name="index"),
     
+
+    #Usuarios
+    path('user/', UserListView.as_view(), name='user-list'),
+    path('user/<int:pk>/', UserDetailView.as_view(), name='user-detail'),
+    path("user/add/", UserCreateView.as_view(), name='user-add'),
+    path('user/<int:pk>/edit/', UserUpdateView.as_view(), name='user-update'),
+    path('user/<int:pk>/delete/', UserDeleteView.as_view(), name='user-delete'),
 
     #Mascotas
     path('mascotas/', MascotasListView.as_view(), name='mascotas-list'),

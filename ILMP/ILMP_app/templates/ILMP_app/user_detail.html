@@ -1,0 +1,17 @@
+
+
+{% block content %}
+
+    <h2>{{ object.nameUsr }}</h2>
+
+        </br>
+
+        <p>Género : {{ object.genderUsr }}</p>
+        <p>Nacido el {{ object.birthUsr }}</p>
+        <p>Número de contacto {{ object.telUsr }}</p>
+        </br>
+        <p>Imagen : <img src="../../../media/{{ object.imgUsr }}"></p>
+        </br>
+        <p>Ubicación : {{ object.ubiUsr }}</p>
+    
+{% endblock %}

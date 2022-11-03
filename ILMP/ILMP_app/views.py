@@ -3,15 +3,38 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 #from ILMP_app.forms import ContactForm
-from ILMP_app.models import Mascotas, Encuentros, Perdidos
+from ILMP_app.models import User ,Mascotas, Encuentros, Perdidos
 from django.urls import reverse_lazy
 #from django.contrib.auth.models import User
 #from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-
+from .forms import UserForm
 #Página de inicio
 
 def index(request):
     return render(request, "ILMP_app/index.html")
+
+
+#Usuarios
+
+class UserListView(ListView):
+    model = User
+
+class UserDetailView(DetailView):
+    model = User
+
+class UserCreateView(CreateView):
+    model = User
+    form_class = UserForm
+    success_url = reverse_lazy('user-list')
+
+class UserUpdateView(UpdateView):
+    model = User
+    fields = ['nameUsr', 'genderUsr', 'birthUsr', 'telUsr', 'imgUsr', 'ubiUsr']
+    template_name_sufix = '_update_form'
+
+class UserDeleteView(DeleteView):
+    model = User
+    success_url = reverse_lazy('user-list')
 
 #Mascotas
 

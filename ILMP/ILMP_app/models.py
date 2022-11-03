@@ -1,6 +1,7 @@
 from multiprocessing.dummy import Manager
 from django.db import models
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
 
 
@@ -9,19 +10,30 @@ GENDER_CHOICES = (
     ('F', 'Female'),
 )
 
-
-
-class Usuarios(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
-    #nameUsr = models.CharField(max_length=200)
-    passUsr = models.CharField(max_length=200)
+#Usuarios
+class User(AbstractUser):
+    
+    nameUsr = models.CharField(max_length=200)
+    genderUsr = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
+    birthUsr = models.DateField(null=True)
+    telUsr= models.CharField(max_length = 9)
+    imgUsr = models.ImageField(null=True, blank=True, upload_to="images/")
     ubiUsr = models.CharField(max_length=200)
-    mailUsr = models.EmailField(max_length=254)
+
+    def get_absolute_url(self):
+        return reverse('user-list', args=[self.pk])
+
+#class Usuarios(models.Model):
+#    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    #nameUsr = models.CharField(max_length=200)
+#    passUsr = models.CharField(max_length=200)
+#    ubiUsr = models.CharField(max_length=200)
+#    mailUsr = models.EmailField(max_length=254)
     #phoneUsr = models.CharField(max_length=12)
     #pub_date = models.DateTimeField('date published')
 
-    def __str__(self):
-        return self.user.first_name
+#    def __str__(self):
+#        return self.user.first_name
 
 #GENDER=[("M"),("F")]
 #GENDER_CHOICES = [
@@ -48,7 +60,7 @@ class Mascotas(models.Model):
     #imgPet = models.FileField(upload_to=None)
     #imgPet = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
     genderPet = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
-    usrPet = models.ForeignKey("Usuarios", on_delete=models.CASCADE, null=True)
+    usrPet = models.ForeignKey("User", on_delete=models.CASCADE, null=True)
     #imgPet = models.BooleanField()
     #models.PositiveBigIntegerField()
     
