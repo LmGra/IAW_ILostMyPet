@@ -25,16 +25,16 @@ class UserDetailView(DetailView):
 class UserCreateView(CreateView):
     model = User
     form_class = UserForm
-    success_url = reverse_lazy('user-list')
+    success_url = reverse_lazy('index')
 
 class UserUpdateView(UpdateView):
     model = User
-    fields = ['nameUsr', 'genderUsr', 'birthUsr', 'telUsr', 'imgUsr', 'ubiUsr']
+    fields = ['genderUsr', 'birthUsr', 'telUsr', 'imgUsr', 'ubiUsr']
     template_name_sufix = '_update_form'
 
 class UserDeleteView(DeleteView):
     model = User
-    success_url = reverse_lazy('user-list')
+    success_url = reverse_lazy('index')
 
 #Mascotas
 
@@ -69,7 +69,7 @@ class EncuentrosDetailView(DetailView):
 class EncuentrosCreateView(CreateView):
     model = Encuentros
     fields = ['typeFind', 'infoFind', 'genderFind', 'ubiFind']
-    #success_url = reverse_lazy('encuentros-list')
+    success_url = reverse_lazy('encuentros-list')
 
 class EncuentrosUpdateView(UpdateView):
     model = Encuentros
@@ -107,3 +107,6 @@ class PerdidosDeleteView(DeleteView):
 #    return render(request,'ILMP_app/index.html')
 
 # Create your views here.
+
+
+

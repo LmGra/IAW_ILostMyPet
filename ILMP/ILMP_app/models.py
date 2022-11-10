@@ -10,10 +10,12 @@ GENDER_CHOICES = (
     ('F', 'Female'),
 )
 
+
+
 #Usuarios
 class User(AbstractUser):
     
-    nameUsr = models.CharField(max_length=200)
+    #nameUsr = models.CharField(max_length=200)
     genderUsr = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
     birthUsr = models.DateField(null=True)
     telUsr= models.CharField(max_length = 9)
@@ -104,3 +106,5 @@ class Encuentros(models.Model):
 
     #def __str__(self):
         #return self.encuentros_text
+
+

@@ -16,4 +16,4 @@ class ContactForm(forms.Form):
 class UserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('username','first_name','last_name','password1','password2','nameUsr', 'genderUsr', 'birthUsr', 'telUsr', 'imgUsr', 'ubiUsr')
+        fields = ('username','first_name','last_name','password1','password2', 'genderUsr', 'birthUsr', 'telUsr', 'imgUsr', 'ubiUsr')

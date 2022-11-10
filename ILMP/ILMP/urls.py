@@ -20,13 +20,27 @@ from django.conf.urls.static import static
 from ILMP_app import views
 from ILMP_app.views import index, UserDeleteView, UserUpdateView, UserCreateView, UserDetailView, UserListView, EncuentrosDeleteView, EncuentrosUpdateView, EncuentrosCreateView, PerdidosUpdateView, PerdidosDeleteView, PerdidosCreateView ,MascotasDeleteView, MascotasUpdateView, MascotasCreateView, PerdidosDetailView, EncuentrosDetailView, MascotasDetailView, MascotasListView, EncuentrosListView, PerdidosListView
 from django.views.generic.base import TemplateView
+from ILMP_app.api import router
+##Api
+
+#from django.urls import path, include
+#from django.contrib.auth.models import User
+#from rest_framework import routers, serializers, viewsets
+
+
+##
 
 urlpatterns = [
+    
     #Index
     #path('', index),
 
     #Admin
     path('admin/', admin.site.urls),
+
+   
+
+
 
     #Accounts
     #path("accounts/", ("django.contrib.auth.urls")),
@@ -35,11 +49,11 @@ urlpatterns = [
     
 
     #Usuarios
-    path('user/', UserListView.as_view(), name='user-list'),
-    path('user/<int:pk>/', UserDetailView.as_view(), name='user-detail'),
+    #path('user/', UserListView.as_view(), name='user-list'),
+    #path('user/<int:pk>/', UserDetailView.as_view(), name='user-detail'),
     path("user/add/", UserCreateView.as_view(), name='user-add'),
-    path('user/<int:pk>/edit/', UserUpdateView.as_view(), name='user-update'),
-    path('user/<int:pk>/delete/', UserDeleteView.as_view(), name='user-delete'),
+    #path('user/<int:pk>/edit/', UserUpdateView.as_view(), name='user-update'),
+    #path('user/<int:pk>/delete/', UserDeleteView.as_view(), name='user-delete'),
 
     #Mascotas
     path('mascotas/', MascotasListView.as_view(), name='mascotas-list'),
@@ -49,16 +63,21 @@ urlpatterns = [
     path('mascotas/<int:pk>/delete/', MascotasDeleteView.as_view(), name='mascotas-delete'),
 
     #Encuentros
-    path('encuentros/', EncuentrosListView.as_view()),
+    path('encuentros/', EncuentrosListView.as_view(), name ='encuentros-list'),
     path('encuentros/<int:pk>/', EncuentrosDetailView.as_view(), name='encuentros-detail'),
     path("encuentros/add/", EncuentrosCreateView.as_view(), name='encuentros-add'),
     path('encuentros/<int:pk>/edit/', EncuentrosUpdateView.as_view(), name='encuentros-update'),
     path('encuentros/<int:pk>/delete/', EncuentrosDeleteView.as_view(), name='encuentros-delete'),
 
     #Perdidos
-    path('perdidos/', PerdidosListView.as_view()),
+    path('perdidos/', PerdidosListView.as_view(), name='perdidos-list'),
     path('perdidos/<int:pk>/', PerdidosDetailView.as_view(), name='perdidos-detail'),
     path("perdidos/add/", PerdidosCreateView.as_view(), name='perdidos-add'),
     path('perdidos/<int:pk>/edit/', PerdidosUpdateView.as_view(), name='perdidos-update'),
     path('perdidos/<int:pk>/delete/', PerdidosDeleteView.as_view(), name='perdidos-delete'),
+
+     #Api
+    path('api/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
