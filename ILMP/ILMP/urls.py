@@ -34,49 +34,18 @@ urlpatterns = [
     
     #Index
     #path('', index),
+    path('', include(('ILMP_app.urls','ilmp'),namespace="ilmp")),
 
     #Admin
     path('admin/', admin.site.urls),
 
-   
-
-
-
     #Accounts
     #path("accounts/", ("django.contrib.auth.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
-    path("", TemplateView.as_view(template_name="ILMP_app/index.html"),name="index"),
+    path("register/", views.register_request, name="register"),
+    #path("", TemplateView.as_view(template_name="ILMP_app/index.html"),name="index"),
     
-
-    #Usuarios
-    #path('user/', UserListView.as_view(), name='user-list'),
-    #path('user/<int:pk>/', UserDetailView.as_view(), name='user-detail'),
-    path("user/add/", UserCreateView.as_view(), name='user-add'),
-    #path('user/<int:pk>/edit/', UserUpdateView.as_view(), name='user-update'),
-    #path('user/<int:pk>/delete/', UserDeleteView.as_view(), name='user-delete'),
-
-    #Mascotas
-    path('mascotas/', MascotasListView.as_view(), name='mascotas-list'),
-    path('mascotas/<int:pk>/', MascotasDetailView.as_view(), name='mascotas-detail'),
-    path("mascotas/add/", MascotasCreateView.as_view(), name='mascotas-add'),
-    path('mascotas/<int:pk>/edit/', MascotasUpdateView.as_view(), name='mascotas-update'),
-    path('mascotas/<int:pk>/delete/', MascotasDeleteView.as_view(), name='mascotas-delete'),
-
-    #Encuentros
-    path('encuentros/', EncuentrosListView.as_view(), name ='encuentros-list'),
-    path('encuentros/<int:pk>/', EncuentrosDetailView.as_view(), name='encuentros-detail'),
-    path("encuentros/add/", EncuentrosCreateView.as_view(), name='encuentros-add'),
-    path('encuentros/<int:pk>/edit/', EncuentrosUpdateView.as_view(), name='encuentros-update'),
-    path('encuentros/<int:pk>/delete/', EncuentrosDeleteView.as_view(), name='encuentros-delete'),
-
-    #Perdidos
-    path('perdidos/', PerdidosListView.as_view(), name='perdidos-list'),
-    path('perdidos/<int:pk>/', PerdidosDetailView.as_view(), name='perdidos-detail'),
-    path("perdidos/add/", PerdidosCreateView.as_view(), name='perdidos-add'),
-    path('perdidos/<int:pk>/edit/', PerdidosUpdateView.as_view(), name='perdidos-update'),
-    path('perdidos/<int:pk>/delete/', PerdidosDeleteView.as_view(), name='perdidos-delete'),
-
-     #Api
+    #Api
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
