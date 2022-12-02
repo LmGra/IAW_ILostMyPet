@@ -1,27 +1,32 @@
-<!--{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>ILostMyPet</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
 
-<link rel="stylesheet" href="{% static 'css/css.css' %}">
--->
-{% load static %}
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
 
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:300;400;600;700;800&display=swap" rel="stylesheet">
 
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="../../static/css/style.css" rel="stylesheet">
+    </head>
 
-<html>
+    <body>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Practica maquetar página"/>
-	<meta name="author" content="Luis Miguel"/>
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie-edge">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
-
-	<title>ILMP</title>
-</head>
-<body>
-	<nav>
+                        <!--Test-->
+                            {% for mascota in mascotas_list %}
+                                AAA
+                            {% endfor %}
+                        <!---->
 
         {% if user.is_authenticated %}
             <div class="nav-item">
@@ -33,135 +38,208 @@
                 <a href="{% url 'login' %}">Logear</a>
             </div>
             <div class="nav-item">
-                <a moz-do-not-send="true" href="user/add">Registrarse</a>
+                <a moz-do-not-send="true" href="register/">Registrarse</a>
             </div>
         {% endif %}
 
-	</nav>
-	<div class="container">
-		<header>
-			<div class="image">
-				<!--<img src="img/ss.jpg" />-->
-			</div>
-		</header>
-		<main>
-			<h1>ILMP_app - Buscador</h1>
-			<div class="gifs">
-				<div class="gif">
-					<!--<a href="http://www.google.com" target="_blank">
-						<img src="img/BodyStand1_2stand.gif"/>
-					</a>-->
-					<h3><a moz-do-not-send="true" href="mascotas">Mascotas</a></h3>
-					<!--<h3>Mascotas</h3>-->
-				</div>
-			<div class="gif">
-				<!--<a href="http://www.google.com" target="_blank">
-					<img src="img/Bunnytest8.gif"/>
-				</a>-->
-					<h3><a moz-do-not-send="true" href="encuentros">Encuentros</a></h3>
-					<!--<h3>Mascotas Perdidas</h3>-->
-				</div>
-				<div class="gif">
-				<!--<a href="http://www.google.com" target="_blank">
-						<img src="img/Alvarojo.gif" />
-					</a>-->
-					<h3><a moz-do-not-send="true" href="perdidos">Pérdidas</a></h3>
-					<!--<h3>Mascotas Encontradas</h3>-->
-				</div>
-			</div>
-		</main>
+        <div class="wrapper">
 
-		<!--<section class="tower">
-			<img src="img/Floortest.png" />
-			<div>
-				El pixel art o arte de píxel es una forma de arte digital, creada a través de una computadora mediante el uso de programas de edición de gráficos rasterizados, donde las imágenes son editadas al nivel del píxel. Las imágenes de la mayor parte de los antiguos videojuegos para PC, videoconsolas y muchos juegos para teléfonos móviles son consideradas obras de pixel art. Posee similitudes con el puntillismo, difiriendo principalmente en las herramientas para la creación de las imágenes: computadoras y programas en lugar de pinceles y lienzos.
-			</div>
-			<div>
-				Este tipo de dibujos ha estado muy presente en juegos antiguos, pero también se destacan juegos actuales que siguen manteniendo este arte digital como forma de diseño como por ejemplo Minecraft, que sigue trabajando a través avatares y muebles creados en pixel art y que cuenta con marcadas reglas en cuanto a este diseño como por ejemplo los bordes negros, el pixel art isométrico, etc. o juegos de videoconsolas antiguas que no soportaban grandes gráficos. 
-			</div>
-			<div>
-				El arte de píxel debe su origen principalmente a los videojuegos, sobre todo a juegos arcade clásicos como por ejemplo Space Invaders (1978) o Pac-Man (1980) y consolas de 8 bits como la Nintendo Entertainment System (1983) y la Sega Master System (1985). 
-			</div>
-		</section>-->
-		<section class="charas">
-			Página principal en construcción
 
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-			BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-			CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-			DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
-			EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-			FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-			GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGgg
-			HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-			YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYy
-			JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-			KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-			LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
-			MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm
-			NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
-			<!--<img src="img/chara0.png" />
-			<img src="img/chara1.png" />
-			<img src="img/chara2.png" />
-			<img src="img/chara3.png" />
-			<img src="img/chara4.png" />
-			<img src="img/chara5.png" />
-			<img src="img/chara6.png" />
-			<img src="img/chara6.png" />
-			<img src="img/chara6.png" />
-			<img src="img/chara6.png" />-->
-		</section>
-	</div>
-	<footer>
-		<address>
-			<p>Jose Leon de Carranza 4trp</p>
-			<p>11011 Cádiz</p>
-			<p>+34123456789</p>
-		</address>
-		<div>Copyright 2022 derechos reservados</div>
-		<section class="social">
-			<a href="http://www.twitter.com" target="_blank">
-				<img src="/media/img/twittericon.png">
-			</a>
-			<a href="http://www.github.com" target="_blank">
-				<img src="/media/img/githubicon.png">
-			</a>
-			<a href="http://www.facebook.com" target="_blank">
-				<img src="/media/img/facebookicon.png">
-				<!--
-				<img src="img/facebookicon.png">
-				-->
-			</a>
-		</section>
-	</footer>
-</body>
+
+            <!---->
+            
+            <div class="sidebar">
+                <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
+                    {% if request.user.is_authenticated %}
+                    <!--<img class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3" src="img/profile.jpg" alt="Image">-->
+                        <img class="mx-auto d-block w-75 bg-primary img-fluid rounded-circle mb-4 p-3" src="/media/{{ user.imgUsr }}" alt="Image">
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <!--<h1 class="font-weight-bold">UserName</h1>-->
+                        <h1 class="font-weight-bold">{{user.username}}</h1> 
+                    {% endif %}
+                    <p class="mb-4">
+                        {% if request.user.is_authenticated %}
+                            {{user.birthUsr}}
+                            {{user.telUsr}}
+                            {{user.ubiUsr}}
+                        {% endif %}
+                    </p>
+                    <div class="d-flex justify-content-center mb-5">
+                        <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-primary mr-2" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+<!--                    <a href="" class="btn btn-lg btn-block btn-primary mt-auto">Hire Me</a>  -->
+                </div>
+                <div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
+                    <i class="fas fa-2x fa-angle-double-right text-primary"></i>
+                </div>
+            </div>
+            <div class="content">
+                <!-- Navbar Start -->
+                <div class="container p-0">
+                    <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+                        <a href="" class="navbar-brand d-block d-lg-none">Navigation</a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav m-auto">
+                                <a href="index.html" class="nav-item nav-link active">Inicio</a>
+<!--                         <a href="about.html" class="nav-item nav-link">Mascotas</a> -->
+                                <a moz-do-not-send="true" href="mascotas" class="nav-item nav-link">Mascotas</a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Desaparición</a>
+                                    <div class="dropdown-menu">
+<!--                                <a href="blog.html" class="dropdown-item">Pérdidas</a>-->
+                                        <a moz-do-not-send="true" href="encuentros"class="dropdown-item">Encuentros</a>
+<!--                                <a href="single.html" class="dropdown-item">Encuentros</a>-->
+                                        <a moz-do-not-send="true" href="perdidos"class="dropdown-item">Perdidos</a>
+                                    </div>
+                                </div>
+<!---->                                <a href="" class="nav-item nav-link">Opciones</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- Navbar End -->
+                
+                <!-- Carousel Start -->
+                <div class="container p-0">
+                    <div id="blog-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+<!---->                                <img  src="../../media/images/Gato1.png" width="200" height="200" alt="Image"> 
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+<!---->                                    <h2 class="mb-3 text-white font-weight-bold">Gatuno</h2>
+                                    <div class="d-flex text-white">
+<!---->                                        <small class="mr-2"><i class="fa fa-calendar-alt"></i> 07-Jan-2022</small> 
+<!---->                                        <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small> 
+<!---->                                        <small class="mr-2"><i class="fa fa-comments"></i> 15 Comentarios</small> 
+                                    </div>
+<!---->                                    <a href="" class="btn btn-lg btn-outline-light mt-4">Ver</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+<!---->                                <img  src="../../media/images/Perro1.png" width="200" height="200" alt="Image">
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    <h2 class="text-white font-weight-bold">Bobby</h2>
+                                    <div class="d-flex">
+                                        <small class="mr-2"><i class="fa fa-calendar-alt"></i> 01-Jan-20021</small>
+                                        <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small>
+                                        <small class="mr-2"><i class="fa fa-comments"></i> 2 Comentarios</small>
+                                    </div>
+                                    <a href="" class="btn btn-lg btn-outline-light mt-4">Ver</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+<!---->                                <img  src="../../media/images/Gato1.png" width="200" height="200" alt="Image">
+                                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    <h2 class="text-white font-weight-bold">Mishifú</h2>
+                                    <div class="d-flex">
+                                        <small class="mr-2"><i class="fa fa-calendar-alt"></i> 11-Feb-2022</small>
+                                        <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small>
+                                        <small class="mr-2"><i class="fa fa-comments"></i> 12 Comentarios</small>
+                                    </div>
+                                    <a href="" class="btn btn-lg btn-outline-light mt-4">Ver</a>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#blog-carousel" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#blog-carousel" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Carousel End -->
+                
+                
+                <!-- Blog List Start -->
+                <div class="container bg-white pt-5">
+                    <div class="row blog-item px-3 pb-5">
+                        <div class="col-md-5">
+<!---->                            <!--<img class="img-fluid mb-4 mb-md-0" src="img/blog-1.jpg" alt="Image">-->
+                                    <img  class="img-fluid mb-4 mb-md-0" src="../../media/images/Perro1.png" width="200" height="200" alt="Image">
+                        </div>
+                        <div class="col-md-7">
+                            <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Bobby</h3>
+                            <div class="d-flex mb-3">
+                                <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-20021</small>
+                                <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
+                                <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 2 Comentarios</small>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
+                            </p>
+                            <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="row blog-item px-3 pb-5">
+                        <div class="col-md-5">
+<!---->                            <img class="img-fluid mb-4 mb-md-0" src="img/blog-2.jpg" alt="Image">
+                        </div>
+                        <div class="col-md-7">
+                            <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Lorem ipsum dolor sit amet</h3>
+                            <div class="d-flex mb-3">
+                                <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                                <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
+                                <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
+                            </p>
+                            <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="row blog-item px-3 pb-5">
+                        <div class="col-md-5">
+<!---->                            <img class="img-fluid mb-4 mb-md-0" src="img/blog-3.jpg" alt="Image">
+                        </div>
+                        <div class="col-md-7">
+                            <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Lorem ipsum dolor sit amet</h3>
+                            <div class="d-flex mb-3">
+                                <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                                <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
+                                <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
+                            </p>
+                            <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog List End -->
+                
+                
+                <!-- Footer Start -->
+                <div class="container py-4 bg-secondary text-center">
+                    <p class="m-0 text-white">
+                        &copy; <a class="text-white font-weight-bold" href="#">ILostMyPet</a>. All Rights Reserved.
+                    </p>
+                </div>
+                <!-- Footer End -->
+            </div>
+        </div>
+        
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="../../static/js/main.js"></script>
+    </body>
 </html>
-
-
-<!--
-Página principal en construcción
--->
-<!-- LOGEAR Y DESLOGEAR(login.html, setting, urls) -->
-<!--
-{% if user.is_authenticated %}
-    Hola {{user.username}}
-    <p><a href="{% url 'logout' %}">Deslogear</a></p>
-    {% else %}
-    <p>No estás logeado</p>
-    <a href="{% url 'login' %}">Logear</a>
-    <p> O </p>
-    <a moz-do-not-send="true" href="user">Registrarse</a><br>
-{% endif %}
--->
-<!-- HIPERVÍNCULOS(listas) -->
-<!--
-</br>
-Apartados:
-</br>
-<a moz-do-not-send="true" href="mascotas">Mascotas</a><br>
-<a moz-do-not-send="true" href="encuentros">Encuentros</a><br>
-<a moz-do-not-send="true" href="perdidos">Pérdidas</a><br>
--->
-
-
-

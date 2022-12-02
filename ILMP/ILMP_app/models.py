@@ -72,7 +72,7 @@ class Mascotas(models.Model):
     def __str__(self):
         return self.namePet
     def get_absolute_url(self):
-        return reverse('mascotas-list',args=[self.pk])
+        return reverse('ilmp:mascotas-list')
 
 class Perdidos(models.Model):
     infoLost = models.CharField(max_length=200)
@@ -86,9 +86,10 @@ class Perdidos(models.Model):
 
     def __str__(self):
         return self.infoLost
-
+    
 class Encuentros(models.Model):
     typeFind = models.CharField(max_length=200)
+    imgFind = models.ImageField(null=True, blank=True, upload_to="images/")
     #genderFind = models.CharField(max_length=1, choices=GENDER)
     infoFind = models.CharField(max_length=200)
     genderFind = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)

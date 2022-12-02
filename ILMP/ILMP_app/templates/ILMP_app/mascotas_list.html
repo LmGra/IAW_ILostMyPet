@@ -4,13 +4,13 @@
     <h2>Mascotas</h2>
     <ul>
         {% for mascota in object_list %}
-        <li><a href={% url 'mascotas-detail' mascota.id %}>{{ mascota.namePet }}</a>
+        <li><a href={% url 'ilmp:mascotas-detail' mascota.id %}>{{ mascota.namePet }}</a>
             <!--<li>{{ mascota.namePet }}</li> -->
-            <a href="{% url 'mascotas-update' mascota.id %}"> <button>Modificar</button></a>&nbsp;&nbsp;
-            <a href="{% url 'mascotas-delete' mascota.id %}"> <button>Eliminar</button></a>
+            <a href="{% url 'ilmp:mascotas-update' mascota.id %}"> <button>Modificar</button></a>&nbsp;&nbsp;
+            <a href="{% url 'ilmp:mascotas-delete' mascota.id %}"> <button>Eliminar</button></a>
             
         </li>
         {% endfor %}
-        <p><a href="{% url 'mascotas-add' %}"> <button>Añadir Mascota</button></a></p>
+        <p><a href="{% url 'ilmp:mascotas-add' %}"> <button>Añadir Mascota</button></a></p>
     </ul>
 {% endblock %}

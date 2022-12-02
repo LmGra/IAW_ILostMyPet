@@ -1,0 +1,167 @@
+<!--{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/css.css' %}">
+-->
+{% load static %}
+
+
+
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Practica maquetar página"/>
+	<meta name="author" content="Luis Miguel"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+
+	<title>ILMP</title>
+</head>
+<body>
+	<nav>
+
+        {% if user.is_authenticated %}
+            <div class="nav-item">
+                Logeado como {{user.username}} 
+                <a href="{% url 'logout' %}">Deslogear</a>
+            </div>
+        {% else %}
+            <div class="nav-item">
+                <a href="{% url 'login' %}">Logear</a>
+            </div>
+            <div class="nav-item">
+                <a moz-do-not-send="true" href="user/add">Registrarse</a>
+            </div>
+        {% endif %}
+
+	</nav>
+	<div class="container">
+		<header>
+			<div class="image">
+				<!--<img src="img/ss.jpg" />-->
+			</div>
+		</header>
+		<main>
+			<h1>ILMP_app - Buscador</h1>
+			<div class="gifs">
+				<div class="gif">
+					<!--<a href="http://www.google.com" target="_blank">
+						<img src="img/BodyStand1_2stand.gif"/>
+					</a>-->
+					<h3><a moz-do-not-send="true" href="mascotas">Mascotas</a></h3>
+					<!--<h3>Mascotas</h3>-->
+				</div>
+			<div class="gif">
+				<!--<a href="http://www.google.com" target="_blank">
+					<img src="img/Bunnytest8.gif"/>
+				</a>-->
+					<h3><a moz-do-not-send="true" href="encuentros">Encuentros</a></h3>
+					<!--<h3>Mascotas Perdidas</h3>-->
+				</div>
+				<div class="gif">
+				<!--<a href="http://www.google.com" target="_blank">
+						<img src="img/Alvarojo.gif" />
+					</a>-->
+					<h3><a moz-do-not-send="true" href="perdidos">Pérdidas</a></h3>
+					<!--<h3>Mascotas Encontradas</h3>-->
+				</div>
+			</div>
+		</main>
+
+		<!--<section class="tower">
+			<img src="img/Floortest.png" />
+			<div>
+				El pixel art o arte de píxel es una forma de arte digital, creada a través de una computadora mediante el uso de programas de edición de gráficos rasterizados, donde las imágenes son editadas al nivel del píxel. Las imágenes de la mayor parte de los antiguos videojuegos para PC, videoconsolas y muchos juegos para teléfonos móviles son consideradas obras de pixel art. Posee similitudes con el puntillismo, difiriendo principalmente en las herramientas para la creación de las imágenes: computadoras y programas en lugar de pinceles y lienzos.
+			</div>
+			<div>
+				Este tipo de dibujos ha estado muy presente en juegos antiguos, pero también se destacan juegos actuales que siguen manteniendo este arte digital como forma de diseño como por ejemplo Minecraft, que sigue trabajando a través avatares y muebles creados en pixel art y que cuenta con marcadas reglas en cuanto a este diseño como por ejemplo los bordes negros, el pixel art isométrico, etc. o juegos de videoconsolas antiguas que no soportaban grandes gráficos. 
+			</div>
+			<div>
+				El arte de píxel debe su origen principalmente a los videojuegos, sobre todo a juegos arcade clásicos como por ejemplo Space Invaders (1978) o Pac-Man (1980) y consolas de 8 bits como la Nintendo Entertainment System (1983) y la Sega Master System (1985). 
+			</div>
+		</section>-->
+		<section class="charas">
+			Página principal en construcción
+
+			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+			CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+			DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+			EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+			FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+			GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGgg
+			HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+			YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYy
+			JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+			KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+			LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+			MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm
+			NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+			<!--<img src="img/chara0.png" />
+			<img src="img/chara1.png" />
+			<img src="img/chara2.png" />
+			<img src="img/chara3.png" />
+			<img src="img/chara4.png" />
+			<img src="img/chara5.png" />
+			<img src="img/chara6.png" />
+			<img src="img/chara6.png" />
+			<img src="img/chara6.png" />
+			<img src="img/chara6.png" />-->
+		</section>
+	</div>
+	<footer>
+		<address>
+			<p>Jose Leon de Carranza 4trp</p>
+			<p>11011 Cádiz</p>
+			<p>+34123456789</p>
+		</address>
+		<div>Copyright 2022 derechos reservados</div>
+		<section class="social">
+			<a href="http://www.twitter.com" target="_blank">
+				<img src="/media/img/twittericon.png">
+			</a>
+			<a href="http://www.github.com" target="_blank">
+				<img src="/media/img/githubicon.png">
+			</a>
+			<a href="http://www.facebook.com" target="_blank">
+				<img src="/media/img/facebookicon.png">
+				<!--
+				<img src="img/facebookicon.png">
+				-->
+			</a>
+		</section>
+	</footer>
+</body>
+</html>
+
+
+<!--
+Página principal en construcción
+-->
+<!-- LOGEAR Y DESLOGEAR(login.html, setting, urls) -->
+<!--
+{% if user.is_authenticated %}
+    Hola {{user.username}}
+    <p><a href="{% url 'logout' %}">Deslogear</a></p>
+    {% else %}
+    <p>No estás logeado</p>
+    <a href="{% url 'login' %}">Logear</a>
+    <p> O </p>
+    <a moz-do-not-send="true" href="user">Registrarse</a><br>
+{% endif %}
+-->
+<!-- HIPERVÍNCULOS(listas) -->
+<!--
+</br>
+Apartados:
+</br>
+<a moz-do-not-send="true" href="mascotas">Mascotas</a><br>
+<a moz-do-not-send="true" href="encuentros">Encuentros</a><br>
+<a moz-do-not-send="true" href="perdidos">Pérdidas</a><br>
+-->
+
+
+

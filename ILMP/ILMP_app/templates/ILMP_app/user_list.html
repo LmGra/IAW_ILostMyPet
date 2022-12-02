@@ -6,10 +6,10 @@
         {% for usuario in object_list %}
         <li><a href={% url 'user-detail' usuario.id %}>{{ usuario.username }}</a>
             <!--<li>{{ mascota.namePet }}</li> -->
-            <a href="{% url 'user-update' usuario.id %}"> <button>Modificar</button></a>&nbsp;&nbsp;
-            <a href="{% url 'user-delete' usuario.id %}"> <button>Eliminar</button></a>
+            <a href="{% url 'ilmp:user-update' usuario.id %}"> <button>Modificar</button></a>&nbsp;&nbsp;
+            <a href="{% url 'ilmp:user-delete' usuario.id %}"> <button>Eliminar</button></a>
         </li>
         {% endfor %}
-        <p><a href="{% url 'user-add' %}"> <button>Añadir Usuario</button></a></p>
+        <p><a href="{% url 'ilmp:user-add' %}"> <button>Añadir Usuario</button></a></p>
     </ul>
 {% endblock %}

@@ -30,7 +30,7 @@ class UserViewSet(viewsets.ModelViewSet):
 class MascotasSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Mascotas
-        fields = ['namePet', 'infoPet', 'agePet', 'typePet', 'imgPet', 'genderPet', 'usrPet']
+        fields = ['url', 'namePet', 'infoPet', 'agePet', 'typePet', 'imgPet', 'genderPet', 'usrPet']
 
 # ViewSets define the view behavior.
 class MascotasViewSet(viewsets.ModelViewSet):
